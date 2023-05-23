@@ -25,7 +25,7 @@
                 mcu: esp32c3
               - name: esp-clock_357451677483992065
                 env: std
-                mcu: esp32
+                mcu: esp32c3
               - name: esp-gallery_348033994448699987
                 env: nostd
                 mcu: esp32c3
