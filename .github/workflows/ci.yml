@@ -74,7 +74,7 @@
               options: -u esp -v ${{ github.workspace }}:/home/esp/workspace
               run: |
                 . /home/esp/export-esp.sh
-                cat /home/esp/workspace/examples/${{ matrix.example.mcu }}-${{ matrix.example.env }}-${{ matrix.example.name }}/main.rs > rust-project-${{ matrix.example.mcu }}/src/main.rs
-                cat /home/esp/workspace/examples/${{ matrix.example.mcu }}-${{ matrix.example.env }}-${{ matrix.example.name }}/Cargo.toml > rust-project-${{ matrix.example.mcu }}/Cargo.toml
+                cat /home/esp/workspace/examples/${{ matrix.example.name }}/main.rs > rust-project-${{ matrix.example.mcu }}/src/main.rs
+                cat /home/esp/workspace/examples/${{ matrix.example.name }}/Cargo.toml > rust-project-${{ matrix.example.mcu }}/Cargo.toml
                 cd rust-project-${{ matrix.example.mcu }}
                 cargo build --release
