@@ -21,25 +21,25 @@
           matrix:
             example:
               - name: crispy-click-esp32c3_341706650098336338
-                env: nostd
+                env: no_std
                 mcu: esp32c3
               - name: esp-clock_357451677483992065
                 env: std
                 mcu: esp32c3
               - name: esp-gallery_348033994448699987
-                env: nostd
+                env: no_std
                 mcu: esp32c3
               - name: esp-keypad_346697192934736467
-                env: nostd
+                env: no_std
                 mcu: esp32s2
               - name: esp32-display_340062796817367636
-                env: nostd
+                env: no_std
                 mcu: esp32
               - name: esp32c3-display_340062891526849108
-                env: nostd
+                env: no_std
                 mcu: esp32c3
               - name: esp32s2-display_338804923638481490
-                env: nostd
+                env: no_std
                 mcu: esp32s2
         steps:
           - name: Checkout the repository
