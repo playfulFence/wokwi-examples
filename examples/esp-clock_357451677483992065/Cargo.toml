@@ -1,5 +1,5 @@
 [package]
-name = "rust_project_esp32с3"
+name = "rust-project-esp32с3"
 version = "0.1.0"
 authors = ["Kirill Mikhailov <kirill.mikhailov@espressif.com>"]
 edition = "2021"
