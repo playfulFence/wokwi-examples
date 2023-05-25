@@ -23,18 +23,16 @@ use embedded_graphics::pixelcolor::*;
 use embedded_graphics::prelude::*;
 use embedded_graphics::primitives::*;
 use embedded_graphics::text::*;
-use embedded_graphics::image::Image;
 use embedded_graphics::geometry::*;
 use embedded_graphics::draw_target::DrawTarget;
-use embedded_hal;
 
 
-use profont::{PROFONT_24_POINT, PROFONT_18_POINT};
+use profont::{PROFONT_18_POINT};
 
 use esp_println::println;
 use esp_backtrace as _;
 
-const textStyle : TextStyle = TextStyleBuilder::new()
+const TEXT_STYLE : TextStyle = TextStyleBuilder::new()
     .alignment(embedded_graphics::text::Alignment::Center)
     .baseline(embedded_graphics::text::Baseline::Middle)
     .build();
@@ -136,9 +134,7 @@ fn main() -> ! {
     let backlight = io.pins.gpio4;
 
     /* Then set backlight (set_low() - display lights up when signal is in 0, set_high() - opposite case(for example.)) */
-    let mut backlight = backlight.into_push_pull_output();
-    //backlight.set_low().unwrap();
-
+    let backlight = backlight.into_push_pull_output();
 
     /* Configure SPI */
     let spi = spi::Spi::new(
@@ -178,7 +174,7 @@ fn main() -> ! {
     Text::with_text_style("Press GREEN button",
             display.bounding_box().center() - Size::new(0, 35), 
             MonoTextStyle::new(&PROFONT_18_POINT, Rgb565::BLACK),
-            textStyle,
+            TEXT_STYLE,
     )
     .draw(&mut display)
     .unwrap();
@@ -187,7 +183,7 @@ fn main() -> ! {
     Text::with_text_style("Press BLUE button",
             display.bounding_box().center() + Size::new(0, 25), 
             MonoTextStyle::new(&PROFONT_18_POINT, Rgb565::BLACK),
-            textStyle,
+            TEXT_STYLE,
     )
     .draw(&mut display)
     .unwrap();
@@ -216,7 +212,7 @@ fn main() -> ! {
                 Text::with_text_style("Green button pressed!",
                     display.bounding_box().center() - Size::new(0, 35), 
                     MonoTextStyle::new(&PROFONT_18_POINT, Rgb565::CSS_GREEN),
-                    textStyle,
+                    TEXT_STYLE,
                 )
                 .draw(&mut display)
                 .unwrap();
@@ -238,7 +234,7 @@ fn main() -> ! {
                 Text::with_text_style("Press BLUE button",
                     display.bounding_box().center() + Size::new(0, 25), 
                     MonoTextStyle::new(&PROFONT_18_POINT, Rgb565::BLACK),
-                    textStyle,
+                    TEXT_STYLE,
                 )
                 .draw(&mut display)
                 .unwrap();
@@ -262,7 +258,7 @@ fn main() -> ! {
                 Text::with_text_style("Blue button pressed!",
                             display.bounding_box().center() + Size::new(0, 25), 
                             MonoTextStyle::new(&PROFONT_18_POINT, Rgb565::BLUE),
-                            textStyle,
+                            TEXT_STYLE,
                 )
                 .draw(&mut display)
                 .unwrap();
@@ -284,7 +280,7 @@ fn main() -> ! {
                 Text::with_text_style("Press GREEN button",
                     display.bounding_box().center() - Size::new(0, 35), 
                     MonoTextStyle::new(&PROFONT_18_POINT, Rgb565::BLACK),
-                    textStyle,
+                    TEXT_STYLE,
                 )
                 .draw(&mut display)
                 .unwrap();
